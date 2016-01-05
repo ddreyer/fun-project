@@ -26,10 +26,12 @@ public class Car {
         return yVelo;
     }
 
+    /* draw the car on the track */
     public void draw() {
         StdDraw.picture(x,y,img);
     }
 
+    /* update movement of the car */
     public void update() {
         
     }
