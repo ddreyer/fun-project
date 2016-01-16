@@ -1,3 +1,7 @@
+/*
+A car on the track
+*/
+
 public class Car {
     private String img;
     private double xVelo, yVelo, x, y;
@@ -32,8 +36,9 @@ public class Car {
     }
 
     /* update movement of the car */
-    public void update() {
-        
+    public void update(double dt) {
+        x = x + xVelo*dt;
+        y = y + yVelo*dt;
     }
 }
 
