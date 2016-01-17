@@ -34,6 +34,7 @@ public class Track {
             } else {
 
             }
+
             car.update(dt);
             StdDraw.picture(0,0,"images/track.jpg");
             counter = 0;
@@ -41,7 +42,7 @@ public class Track {
                 planetArray[counter].draw();
                 counter = counter + 1;
             }
-            
+
             StdDraw.show(10);
             time = time + dt;
         }
