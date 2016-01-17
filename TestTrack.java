@@ -9,8 +9,14 @@ public class TestTrack {
 
     @Test
     public void testInit() {
-        Track t = new Track();
-        assertEquals(3,t.numberOfCars);
+        Track t = new Track("images/track.jpg");
+        assertEquals(1, t.getNumOfCars());
+    }
+
+    @Test
+    public void testCar() {
+        Car c = new Car("images/car.jpg");
+        assertEquals(0,c.getXpos(),0.01);
     }
 
     /** Runs tests. */

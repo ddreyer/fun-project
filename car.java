@@ -6,36 +6,28 @@ public class Car {
     private String img;
     private double xVelo, yVelo, x, y;
 
-    public Car(String img, double startX, double startY) {
+    public Car(String img) {
         this.img = img;
-        yVelo = 0;
-        xVelo = 0;
-        x = startX;
-        y = startY;
+        xVelo = 2; 
+        yVelo = 2;
+        x = 0;
+        y = 0;
     }
 
-    public void setXVelo(double newXVelo) {
-        xVelo = newXVelo;
+    public double getXpos() {
+        return x;
     }
 
-    public double getXVelo() {
-        return xVelo;
-    }
-
-    public void setYVelo(double newYVelo) {
-        yVelo = newYVelo;
-    }
-
-    public double getYVelo() {
-        return yVelo;
+    public double getYpos() {
+        return y;
     }
 
     /* draw the car on the track */
     public void draw() {
-        StdDraw.picture(x,y,img);
+        StdDraw.picture(x, y, img, 1, 1);
     }
 
-    /* update movement of the car */
+    /* update the position of the car */
     public void update(double dt) {
         x = x + xVelo*dt;
         y = y + yVelo*dt;
