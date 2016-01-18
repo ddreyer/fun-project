@@ -1,3 +1,4 @@
+import java.lang.Math;
 /*
 A car on the track
 */
@@ -6,39 +7,44 @@ public class Car {
     private String img;
     private double xVelo, yVelo, x, y;
 
-    public Car(String img, double startX, double startY) {
+    public Car(String img) {
         this.img = img;
-        yVelo = 0;
-        xVelo = 0;
-        x = startX;
-        y = startY;
+        xVelo = 1/Math.sqrt(2); 
+        yVelo = 1/Math.sqrt(2);
+        x = 0;
+        y = 0;
     }
 
-    public void setXVelo(double newXVelo) {
-        xVelo = newXVelo;
+    /* accessor method */
+    public double getXpos() {
+        return x;
     }
 
-    public double getXVelo() {
-        return xVelo;
-    }
-
-    public void setYVelo(double newYVelo) {
-        yVelo = newYVelo;
-    }
-
-    public double getYVelo() {
-        return yVelo;
+    /* accessor method */
+    public double getYpos() {
+        return y;
     }
 
     /* draw the car on the track */
     public void draw() {
-        StdDraw.picture(x,y,img);
+        StdDraw.picture(x, y, img, 1, 1);
     }
 
-    /* update movement of the car */
+    /* update the position of the car */
     public void update(double dt) {
         x = x + xVelo*dt;
         y = y + yVelo*dt;
+    }
+
+    /* update the position of the car when mouse has been pressed */
+    public void update(double dt, double mouseX, double mouseY) {
+        xVelo = 0;
+        update(dt);
+    }
+
+    /* method to normalized velocity vectors */
+    public void normalizeVector(double mouseX, double mouseY) {
+
     }
 }
 

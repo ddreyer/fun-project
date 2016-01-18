@@ -4,24 +4,48 @@ The track where cars drive on.
 
 public class Track {
 
-    public final int numberOfCars = 3;
-    public final double dt = 0.1;
+    private String image;
+    private int numOfCars;
 
-    public Track() {
+    public Track(String img) {
+        image = img;
+        numOfCars = 1;
+    }
+
+    public int getNumOfCars() {
+        return numOfCars;
     }
 
     public static void main(String [] args) {
+        final double dt = 0.1, radius = 10, T = 10;
+        StdDraw.setScale(-radius, radius);
         StdDraw.picture(0,0,"images/track.jpg");
-        
-        double startX = ;
-        double startY = ;
 
         /* set image of car */
-        String image = new String[]'images/car1.png','images/car2.png','images/car3.jpg'};
+        String image = "images/car.jpg";
 
         /* initialize car on track */
-        Car car = new Car(image,startX,startY);
-        
+        Car car = new Car(image);
+        car.draw();
+
+        /* loop that animates the car */
+        double time = 0;
+        while (time < T) {
+            if (StdDraw.mousePressed()) {
+                double mouseX = StdDraw.mouseX();
+                double mouseY = StdDraw.mouseY();
+                car.update(dt, mouseX, mouseY); // update car with new velocity
+            } else {
+                car.update(dt);
+            }
+            StdDraw.picture(0,0,"images/track.jpg");
+            car.draw();
+            
+            StdDraw.show(10);
+            time = time + dt;
+        }
+        StdOut.print(car.getXpos());
+        StdOut.print(car.getYpos());
         
     }
 }
