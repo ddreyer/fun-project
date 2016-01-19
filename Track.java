@@ -17,7 +17,7 @@ public class Track {
     }
 
     public static void main(String [] args) {
-        final double dt = 0.1, radius = 10, T = 10;
+        final double dt = 0.1, radius = 10, T = 100;
         StdDraw.setScale(-radius, radius);
         StdDraw.picture(0,0,"images/track.jpg");
 
@@ -44,8 +44,6 @@ public class Track {
             StdDraw.show(10);
             time = time + dt;
         }
-        StdOut.print(car.getXpos());
-        StdOut.print(car.getYpos());
         
     }
 }
