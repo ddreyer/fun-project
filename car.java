@@ -38,13 +38,17 @@ public class Car {
 
     /* update the position of the car when mouse has been pressed */
     public void update(double dt, double mouseX, double mouseY) {
-        xVelo = 0;
+        double distance = Math.sqrt(Math.pow(mouseX - x, 2) + 
+            Math.pow(mouseY - y, 2)); // distance between mouse and car
+            
+        normalizeVector(mouseX, mouseY, distance);
         update(dt);
     }
 
     /* method to normalized velocity vectors */
-    public void normalizeVector(double mouseX, double mouseY) {
-
+    public void normalizeVector(double mouseX, double mouseY, double distance) {
+        xVelo = (mouseX - x)/distance;
+        yVelo = (mouseY - y)/distance;
     }
 }
 
